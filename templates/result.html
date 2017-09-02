@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>FLIGHTS</title>
+    <link rel=stylesheet type=text/css href='{{ url_for('static',filename='bootstrap.css')}}'>
+    <link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.5.min.css" type="text/css" />
+    <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.5.min.js"></script>
+  </head>
+  <body>
+    <div class=page>
+      <h1>Fly-Maybe</h1>
+      <h3>Prediction:</h3>
+      <div>You flight is class: <strong>{{ pred }}</strong></div>
+      <div>Probability: {{ proba }}</div>
+      <div>Legend: Class 0 : No delay or 15 minutes max
+                   Class 1 : Small delay - 15 to 45 minutes max
+                   Class 2 : Annoying delay - 45 min to 2 h
+                   Class 3 : Catastrophic dealy! - >2h
+      </div>
+    </div>
+    <div class=metanav>
+    <form method='get' action='/index'>
+        <button class="btn btn-default button1" name="map"> HOME </button>
+    </form>
+
+    <form method='get' action='/getmap'>
+        <button class="btn btn-default button1" name="map"> MAP </button>
+    </form>
+
+    <form method='get' action='/getdata'>
+        <button class="btn btn-default button1" name="map"> PREDICTION </button>
+    </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+ body {
+            padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        }
+
+        #map {
+           /* background-image: url('../img/subtlepatterns/pw_maze_white/pw_maze_white.png'); */
+        }
+
+        #map div.leaflet-tile-pane {
+            opacity: 0.4;
+        }
+
+        div.leaflet-control-legend {
+            width: 400px;
+            max-height: 80px;
+        }
+
+        .legend-line {
+            margin-bottom: 20px;
+        }
+
+        .legend-line div.scale-bars i {
+            background: none !important;
+            width: 0px;
+            height: 0px !important;
+            vertical-align: middle;
+            border-left: none !important;
+        }
+
+        .line-legend .legend-box {
+            width: 0px;
+            height: 0px !important;
+            border-top: none !important;
+            border-right: none !important;
+        }
+
+        .airport-icon .icon-plane {
+            text-align: center;
+            vertical-align: middle;
+            display: inline-block;
+            text-shadow: 2px 2px 3px #555555
+        }
+
+        .airport-icon .code {
+            color: #777777;
+            text-align: center;
+            vertical-align: middle;
+            display: inline-block;
+            text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+            font-weight: bold;
+            *background-color: rgba(255, 255, 255, 0.5);
+            *border-radius: 3px;
+        }
+
+        #info {
+            margin: 10px;
+            position: absolute;
+            top: 200px;
+            right: 0px;
+            width: 400px;
+            height: 400px;
+            overflow-y: auto;
+            max-height: 400px;
+            z-index: 999;
+        }
+
+        #info table {
+            background-color: #fff;
+        }
