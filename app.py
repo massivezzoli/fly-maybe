@@ -23,7 +23,7 @@ app.vars = {}
 # LOAD data and clf/lb
 
 # union = joblib.load('union_test.pkl')
-lb_a = pickle.load(open('areoporti_encoder_0829.p', 'rb'))
+lb_a = pickle.load(open('airport_encoder_0829.p', 'rb'))
 lb_c = pickle.load(open('carriers_encoder_0829.p', 'rb'))
 mapper = pickle.load(open('mapper_0829.p', 'rb'))
 clf = pickle.load(open('logistic_0829.p', 'rb'))
