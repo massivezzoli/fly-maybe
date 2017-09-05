@@ -36,7 +36,7 @@ $start-columns 						: $b-vp;
 
 // Define your main colour palette using whatever naming system you like
 $black							: #212121; //palette
-$white							: #fff; //#fffce4; //palette
+$white							: #ffffff; //#fffce4; //palette
 $green 							: #424242; //palette
 $lightgreen						: #AEEA00; //#b8b530; //palette
 $red							: #da4036; //palette
@@ -45,13 +45,14 @@ $lightgrey						: #EEEEEE; //#eaeaea;
 $purple							: #673AB7;
 $blue							: #2196F3;
 $orange							: #FF9800;
+$gray							: #e6e6e6;
 
 
 // Assign colours to variable roles
 // Be descriptive without being specific.
 // This allows for consistency project to project, and easy changing
 
-$body-color 						: $white + 20; //$white;
+$body-color 						: $white; //$white;
 $base-color							: $black;
 $heading-color						: $black;
 $hightlight-color 					: $lightgreen;

@@ -17,16 +17,17 @@ html {
 	-webkit-font-smoothing: antialiased;
 }
 
-body {
-	@extend .font-body;
-	background: $body-color;
-	color: $base-color;
-}
-
 /* ::Import styles */
 /* ------------------------------------------------------------ */
 
 @import "bootstrap-custom";					// bootstrap
+
+body {
+	@extend .font-body;
+	background: $black;
+	color: $gray;
+}
+
 @import "libs/typography"; 					// Base level typography
 @import "add-ons/module-typeset"; 			// Specific typesetting
 @import "libs/forms";						// Forms
