@@ -1,0 +1,18 @@
+/* Welcome to Compass. Use this file to define print styles.
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> */
+@import "compass/typography/vertical_rhythm";
+@import "compass/css3";
+@import "compass/utilities";
+
+@import "libs/reset";
+@import "libs/settings";
+@import "libs/mixins";
+
+@media print {
+	body {
+		// Smaller type for printing. Save a tree
+		font-size: percentage(10 / 16);
+		@include adjust-leading-to(2);
+	}
+}

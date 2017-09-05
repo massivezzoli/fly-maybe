@@ -1,0 +1,113 @@
+// ::Imports pre-render. Must be after reset
+// ------------------------------------------------------------
+
+@import "libs/required";
+@import "libs/reset";
+@import "libs/settings";
+@import "libs/mixins";
+@import "libs/placeholders";
+@import "breakpoint";
+
+/* ::Base styles */
+/* ------------------------------------------------------------ */
+
+html {
+	font-size: 100%;
+	/* normalize text rendering */
+	-webkit-font-smoothing: antialiased;
+}
+
+body {
+	@extend .font-body;
+	background: $body-color;
+	color: $base-color;
+}
+
+/* ::Import styles */
+/* ------------------------------------------------------------ */
+
+@import "bootstrap-custom";					// bootstrap
+@import "libs/typography"; 					// Base level typography
+@import "add-ons/module-typeset"; 			// Specific typesetting
+@import "libs/forms";						// Forms
+@import "libs/iubenda"; 					// Iubenda
+@import "libs/bxslider"; 					// bxslider
+@import "libs/strip"; 						// strip
+
+a {
+	color: $action;
+	text-decoration: none;
+	@include link-active-styles { 	// Mixin for interactions (hover,focus,active)
+		color: $action-respond;
+	}
+	&:not(>img) {
+		@include force-wrap;
+	}
+}
+
+.svg-wrapper {
+	width: 100%;
+	display: block;
+	height: auto;
+	position: relative;
+	padding-top: 100%; /* SQUARED */
+	@include base_transition();
+
+	svg {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+
+/* main container */
+.container {
+	@include clearfix;
+}
+
+// Use SASS globbing to import all _.scss files in the module folder.
+// These should be independent modules that follow the BEM/SMACSS way
+@import "modules/*";
+
+
+// ------------------------------------------------------------
+// Breakpoints
+// ------------------------------------------------------------
+
+//Two
+@include breakpoint($b-vp) {
+
+}
+
+//Free
+@include breakpoint($c-vp) {
+
+}
+
+//Four
+@include breakpoint($d-vp) {
+
+}
+
+//Five
+@include breakpoint($e-vp) {
+
+}
+
+//Six
+@include breakpoint($f-vp) {
+
+}
+
+
+/* ::Print */
+/* ------------------------------------------------------------ */
+
+@media print {
+	body {
+		@include adjust-leading-to(2);
+		font-size: percentage(10 / 16);
+	}
+}

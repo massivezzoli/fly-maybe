@@ -40,6 +40,7 @@ cols = ['Month', 'DayofMonth', 'DayOfWeek', 'UniqueCarrier', 'Origin', 'Dest',
         'd_rain_1h']
 sample = pd.DataFrame(index=np.arange(1), columns=cols)
 
+app.add_url_rule('/assets/<path:filename>', endpoint='assets', view_func=app.send_static_file)
 
 @app.route('/')
 def main():

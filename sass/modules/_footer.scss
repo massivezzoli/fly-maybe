@@ -1,0 +1,40 @@
+// ------------------------------------------------------------
+// Footer module
+// ------------------------------------------------------------
+
+// Place your BEM/SMACSS style .scss modules in the modules folder
+
+
+
+
+
+
+
+// ------------------------------------------------------------
+// Breakpoints
+// ------------------------------------------------------------
+
+//Two
+@include breakpoint($b-vp) {
+
+}
+
+//Free
+@include breakpoint($c-vp) {
+
+}
+
+//Four
+@include breakpoint($d-vp) {
+
+}
+
+//Five
+@include breakpoint($e-vp) {
+
+}
+
+//Six
+@include breakpoint($f-vp) {
+
+}

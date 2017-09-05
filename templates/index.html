@@ -1,48 +1,37 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>FLIGHTS</title>
-        <link rel=stylesheet type=text/css href='{{ url_for('static',filename='bootstrap.css')}}'>
-    </head>
-    <body>
-    <div class=page>
-              <h1>Fly-Maybe</h1>
-              <div>
-                  Passengers and frequent flyers are often caught unprepared by
-                  their flights’ delays, and that can often ruin a business trip
-                  or the start of a relaxing holiday.
-                  By looking at historical data from the 50 top USA airports, and
-                  the help of machine learning, we can make predictions about of possible
-                  delays our impending flight and be prepared!
-
-                  By studying the flight’s data from last year and enriching it with very
-                  detailed weather data from the NOAA stations, we have learned which
-                  information allow us to make reliable predictions about the delay of
-                  an upcoming flight.
-
-                  The dataset used contains information about all aspects of a particular
-                  flight; carrier, date, origin and destination, time of departure and arrival,
-                   statistics about taxing time, weather at the airports, and much more.
-                   All of this is leveraged by an algorithm to predict if your flight,
-                   within the next five days, will be delayed.
-
-                   Have a look at the data used to train the algorithm, by looking at
-                   the recorded delays across airports in the USA in 2016,
-                   or just input the information about your flight and see if you should
-                   expect a smooth journey or not.
-
-              </div>
-              <div class=metanav>
-
-                <form method='get' action='/getmap'>
-                    <button class="btn btn-default button1" name="map"> MAP </button>
-                </form>
-                
-                <form method='get' action='/getdata'>
-                    <button class="btn btn-default button1" name="map"> PREDICTION </button>
-                </form>
-              </div>
-        </div>
-    </body>
-</html>
+{% extends "layout.html" %}
+{% block content %}
+    <div class="page">
+	    <div class="container">
+		    <div class="row">
+			    <div class="homepage-block">
+			    	<div class="homepage-intro">
+						<h1>Fly-Maybe</h1>
+						<p>Passengers and frequent flyers are often caught unprepared by
+		    			their flights’ delays, and that can often ruin a business trip
+		    			or the start of a relaxing holiday.
+		    			By looking at historical data from the 50 top USA airports, and
+		    			the help of machine learning, we can make predictions about of possible
+		    			delays our impending flight and be prepared!</p>
+						<p>By studying the flight’s data from last year and enriching it with very
+		    			detailed weather data from the NOAA stations, we have learned which
+		    			information allow us to make reliable predictions about the delay of
+		    			an upcoming flight.</p>
+						<p>The dataset used contains information about all aspects of a particular
+		    			flight; carrier, date, origin and destination, time of departure and arrival,
+		    			statistics about taxing time, weather at the airports, and much more.
+		    			All of this is leveraged by an algorithm to predict if your flight,
+		    			within the next five days, will be delayed.</p>
+						<p>Have a look at the data used to train the algorithm, by looking at
+		    			the recorded delays across airports in the USA in 2016,
+		    			or just input the information about your flight and see if you should
+		    			expect a smooth journey or not.</p>
+					</div>
+					<div class="homepage-nav">
+						<button class="btn btn-default" href="/getmap">Map</button>
+						<button class="btn btn-default" href="/getdata">Prediction</button>
+					</div>
+				</div>
+		    </div>
+	    </div>
+    </div>
+{% endblock %}

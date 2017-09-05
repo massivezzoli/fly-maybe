@@ -1,0 +1,28 @@
+{
+  "name": "Fly-Maybe",
+  "version": "0.1.0",
+  "author": "Massimiliano Vezzoli <massi.vezzoli@gmail.com>",
+  "homepage": "",
+  "description": "",
+  "contributors": [
+    {
+      "name": "Massimiliano Vezzoli",
+      "email": "massi.vezzoli@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:massivezzoli/fly-maybe.git"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-clean": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-contrib-compass": "latest"
+  }
+}

@@ -1,0 +1,195 @@
+// ------------------------------------------------------------
+// Global typography
+// ------------------------------------------------------------
+
+
+// ------------------------------------------------------------
+// Fonts
+// ------------------------------------------------------------
+
+.font-body 					{  font-family: 'Open Sans', sans-serif, sans-serif; }
+.font-var 					{  font-family: Georgia, serif; }
+
+
+// ------------------------------------------------------------
+// Core typography
+// ------------------------------------------------------------
+
+p, span, cite, ol, ul, pre, label, input, textarea 	{ @include adjust-font-size-to($para); }
+ul 													{ @include nobullet; } 						
+ol 													{ @include nobullet; }	
+li 													{ line-height: inherit; }					
+strong, b 											{ font-weight: 700; }
+em, i, q 											{ font-style: italic; }
+
+h1, h2, h3, h4, h5, h6 {
+	
+}
+
+h1 {
+	
+}
+
+h2 {
+	
+}
+
+h3 {
+	
+}
+
+h4 {
+	
+}
+
+h5 {
+	
+}
+
+h6 {
+	
+}
+
+// ------------------------------------------------------------
+// Breakpoints
+// ------------------------------------------------------------
+
+//Two
+@include breakpoint($b-vp) {
+	
+	h1 {
+		
+	}
+	
+	h2 {
+		
+	}
+	
+	h3 {
+		
+	}
+	
+	h4 {
+		
+	}
+	
+	h5 {
+		
+	}
+	
+	h6 {
+		
+	}
+}
+
+//Free
+@include breakpoint($c-vp) {
+	
+	h1 {
+		
+	}
+	
+	h2 {
+		
+	}
+	
+	h3 {
+		
+	}
+	
+	h4 {
+		
+	}
+	
+	h5 {
+		
+	}
+	
+	h6 {
+		
+	}
+}
+
+//Four
+@include breakpoint($d-vp) {
+	
+	h1 {
+		
+	}
+	
+	h2 {
+		
+	}
+	
+	h3 {
+		
+	}
+	
+	h4 {
+		
+	}
+	
+	h5 {
+		
+	}
+	
+	h6 {
+		
+	}
+}
+
+//Five
+@include breakpoint($e-vp) {
+	
+	h1 {
+		
+	}
+	
+	h2 {
+		
+	}
+	
+	h3 {
+		
+	}
+	
+	h4 {
+		
+	}
+	
+	h5 {
+		
+	}
+	
+	h6 {
+		
+	}
+}
+
+//Six
+@include breakpoint($f-vp) {
+	
+	h1 {
+		
+	}
+	
+	h2 {
+		
+	}
+	
+	h3 {
+		
+	}
+	
+	h4 {
+		
+	}
+	
+	h5 {
+		
+	}
+	
+	h6 {
+		
+	}
+}
