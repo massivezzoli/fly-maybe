@@ -9128,19 +9128,22 @@ a {
     left: 0;
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
     opacity: 0.6; }
+  /* line 29, ../../../sass/modules/_homepage.scss */
+  .homepage-intro .row {
+    height: 100vh; }
 
-/* line 30, ../../../sass/modules/_homepage.scss */
+/* line 34, ../../../sass/modules/_homepage.scss */
 .homepage-block {
   text-align: center;
   position: relative;
   z-index: 100; }
 
-/* line 37, ../../../sass/modules/_homepage.scss */
+/* line 41, ../../../sass/modules/_homepage.scss */
 .homepage-nav .btn {
   margin: 0 15px;
   min-width: 150px; }
 
-/* line 43, ../../../sass/modules/_homepage.scss */
+/* line 47, ../../../sass/modules/_homepage.scss */
 #map {
   background: #e6e6e6; }
 

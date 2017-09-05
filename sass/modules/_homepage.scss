@@ -25,6 +25,10 @@
 		left: 0;
 		@include opacity(0.6);
 	}
+
+	.row {
+		height: 100vh;
+	}
 }
 
 .homepage-block {
