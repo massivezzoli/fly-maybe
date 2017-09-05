@@ -8,8 +8,8 @@ module.exports = function(grunt) {
       },
       all: [
         'Gruntfile.js',
-        'assets/js/*.js',
-        'assets/js/vendor/*.js',
+        'static/assets/js/*.js',
+        'static/assets/js/vendor/*.js',
         '!assets/js/scripts.min.js',
         '!assets/js/plugins.min.js',
         '!assets/js/head.min.js'
@@ -19,10 +19,10 @@ module.exports = function(grunt) {
     	dist: {                   // Target
 			options: {              // Target options
 				sassDir: 'sass',
-				cssDir: 'assets/css',
-				imagesDir: 'assets/img',
-				javascriptsDir: 'assets/js',
-				fontsDir: 'assets/fonts',
+				cssDir: 'static/assets/css',
+				imagesDir: 'static/assets/img',
+				javascriptsDir: 'static/assets/js',
+				fontsDir: 'static/assets/fonts',
 				environment: 'production',
 				outputStyle: 'compressed',
 				force: true
@@ -31,10 +31,10 @@ module.exports = function(grunt) {
 		dev: {                    // Another target
 			options: {
 				sassDir: 'sass',
-				cssDir: 'assets/css',
-				imagesDir: 'assets/img',
-				javascriptsDir: 'assets/js',
-				fontsDir: 'assets/fonts',
+				cssDir: 'static/assets/css',
+				imagesDir: 'static/assets/img',
+				javascriptsDir: 'static/assets/js',
+				fontsDir: 'static/assets/fonts',
 				environment: 'development',
 				outputStyle: 'nested'
 			}
@@ -43,15 +43,15 @@ module.exports = function(grunt) {
     uglify: {
       dist: {
         files: {
-          'assets/js/plugins.min.js': [
-            'assets/js/vendor/*.js'
+          'static/assets/js/plugins.min.js': [
+            'static/assets/js/vendor/*.js'
           ],
-          'assets/js/main.min.js': [
-          	'assets/js/inc/*.js',
-          	'assets/js/main.js'
+          'static/assets/js/main.min.js': [
+          	'static/assets/js/inc/*.js',
+          	'static/assets/js/main.js'
           ],
-          'assets/js/head.min.js': [
-          	'assets/js/head/*.js',
+          'static/assets/js/head.min.js': [
+          	'static/assets/js/head/*.js',
           ]
         }
       },
@@ -61,15 +61,15 @@ module.exports = function(grunt) {
 	      	preserveComments: true
       	},
 	     files: {
-          'assets/js/plugins.min.js': [
-            'assets/js/vendor/*.js'
+          'static/assets/js/plugins.min.js': [
+            'static/assets/js/vendor/*.js'
           ],
-          'assets/js/main.min.js': [
-          	'assets/js/inc/*.js',
-          	'assets/js/main.js'
+          'static/assets/js/main.min.js': [
+          	'static/assets/js/inc/*.js',
+          	'static/assets/js/main.js'
           ],
-          'assets/js/head.min.js': [
-          	'assets/js/head/*.js'
+          'static/assets/js/head.min.js': [
+          	'static/assets/js/head/*.js'
           ]
 
         }
@@ -82,15 +82,15 @@ module.exports = function(grunt) {
 	  },
       js: {
         files: [
-          'assets/js/scritps_head/*.js',
-          'assets/js/inc/*.js',
-          'assets/js/main.js',
-          'assets/js/plugins.js'
+          'static/assets/js/scritps_head/*.js',
+          'static/assets/js/inc/*.js',
+          'static/assets/js/main.js',
+          'static/assets/js/plugins.js'
         ],
         tasks: [ 'uglify:dev']
       },
       livereload: {
-		  files: ['assets/css/*.css', 'assets/js/**/*.js', '*.html', '*.php', 'lib/*.php', 'templates/*.php', 'assets/img/**/*.{png,jpg,jpeg,gif,webp,svg}'],
+		  files: ['static/assets/css/*.css', 'static/assets/js/**/*.js', '*.html', '*.php', 'lib/*.php', 'templates/*.php', 'static/assets/img/**/*.{png,jpg,jpeg,gif,webp,svg}'],
 		  options: {
 			  livereload: true,
 		},
@@ -98,9 +98,9 @@ module.exports = function(grunt) {
     },
     clean: {
       dist: [
-        'assets/js/plugins.min.js',
-        'assets/js/main.min.js',
-        'assets/js/head.min.js'
+        'static/assets/js/plugins.min.js',
+        'static/assets/js/main.min.js',
+        'static/assets/js/head.min.js'
       ]
     }
   });
