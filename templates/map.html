@@ -8,19 +8,16 @@
     <meta name="author" content="">
 
     <!-- CSS -->
-    <link rel=stylesheet href='{{ url_for('static',filename='lib/bootstrap/css/bootstrap.css')}}'>
+    <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
-    <link rel=stylesheet type="text/css" media="screen" href='{{ url_for('static',filename='css/screen.css')}}'>
-    <link rel=stylesheet type="text/css" media="screen" href='{{ url_for('static',filename='lib/leaflet/leaflet.css')}}'>
-    <link rel=stylesheet type="text/css" media="screen" href='{{ url_for('static',filename='lib/leaflet/dvf.css')}}'>
-    <link rel=stylesheet type="text/css" media="screen" href='{{ url_for('static',filename='css/example.css')}}'>
-    <link rel=stylesheet type="text/css" media="screen" href='{{ url_for('static',filename='css/ui.css')}}'>
-
-
+    <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="lib/leaflet/leaflet.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="lib/leaflet/dvf.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="css/example.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="css/ui.css" type="text/css" media="screen"/>
 </head>
 
 <body>
-<h1>Fly-Maybe</h1>
 <div class="navbar">
     <div class="navbar-inner">
         <div class="container">
@@ -49,19 +46,18 @@
 
 <!-- js -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src='{{ url_for('static',filename= 'lib/bootstrap/js/bootstrap.min.js')}}'></script>
-<script type="text/javascript" src='{{ url_for('static', filename='lib/leaflet/leaflet-src.js')}}'></script>
+<script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="lib/leaflet/leaflet-src.js"></script>
 <!-- cdn js -->
 <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.3"></script>
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.1/underscore-min.js"></script>
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js" ></script>
 
 <!-- real data -->
-<script type="text/javascript" src='{{ url_for('static', filename='data/flightData.js')}}'></script>
-<script type="text/javascript" src='{{ url_for('static', filename='data/usAirports.js')}}'></script>
+<script type="text/javascript" src="data/flights_delays.js"></script>
+<script type="text/javascript" src="data/usAirports.js"></script>
 
-<script type="text/javascript" src='{{ url_for('static', filename='lib/leaflet/dvf.js')}}'></script>
-
+<script type="text/javascript" src="lib/leaflet/dvf.js"></script>
 <script type="text/javascript">
 
 
@@ -106,31 +102,31 @@
 
         // Sort flight data in descending order by the number of flights.  This will ensure that thicker lines get displayed
         // below thinner lines
-        flights = _.sortBy(flights, function (value) {
-            return -1 * value.cnt;
+        flight_delays = _.sortBy(flight_delays, function (value) {
+            return -1 * value.ratio;
         });
 
-        console.log(flights);
+        console.log(flight_delays);
 
-        // Group flight data by airline code
-        var airlineLookup = _.groupBy(flights, function (value) {
-            return value.airline;
+        // Group flight data by UniqueCarrier code
+        var UniqueCarrierLookup = _.groupBy(flight_delays, function (value) {
+            return value.UniqueCarrier;
         });
 
-        console.log(airlineLookup);
+        console.log(UniqueCarrierLookup);
 
-        var maxCountAll = Number(flights[0].cnt);
+        var maxCountAll = Number(flight_delays[0].ratio);
 
         console.log("max count all:"+maxCountAll);
 
         // Get the top count of flights
-        flights = _.filter(flights, function (value) {
-            return value.airline !== 'all';
+        flight_delays = _.filter(flight_delays, function (value) {
+            return value.UniqueCarrier !== 'all';
         });
 
-        console.log(flights);
+        console.log(flight_delays);
 
-        var maxCount = Number(flights[0].cnt);
+        var maxCount = Number(flight_delays[0].ratio);
 
         console.log("max count:"+maxCount)
 
@@ -163,8 +159,8 @@
         var options = {
             recordsField: null,
             locationMode: L.LocationModes.CUSTOM,
-            fromField: 'airport1',
-            toField: 'airport2',
+            fromField: 'Origin',
+            toField: 'Dest',
             codeField: null,
             getLocation: getLocation,
             getEdge: L.Graph.EDGESTYLE.ARC,
@@ -172,7 +168,7 @@
                 return false;
             },
             getIndexKey: function (location, record) {
-                return record.airport1 + '_' + record.airport2;
+                return record.Origin + '_' + record.Dest;
             },
             setHighlight: function (style) {
                 style.opacity = 1.0;
@@ -218,13 +214,13 @@
             },
             displayOptions: {
                 //
-                cnt: {
-                    weight: new L.LinearFunction([0, 1], [maxCount, 14]),
-                    color: new L.HSLHueFunction([300, 100], [maxCount, 0], {
+                ratio: {
+                    weight: new L.LinearFunction([0, 1], [1, 14]),
+                    color: new L.HSLHueFunction([0, 100], [0.5, 0], {
                         outputSaturation: '80%',
                         outputLuminosity: '50%'
                     }),
-                    displayName: 'Flights GEGGE'
+                    displayName: 'Ratio of delayed flights over total'
                 }
             },
             onEachRecord: function (layer, record, location) {
@@ -239,7 +235,7 @@
 
         //console.log(options);
 
-        var allLayer = new L.Graph(flights, options);
+        var allLayer = new L.Graph(flight_delays, options);
 
         console.log(allLayer);
 
@@ -304,14 +300,14 @@
                 return icon;
             },
             onEachRecord: function (layer, record) {
-                layer.on('click', function () {
+                layer.on('mouseover', function () {
                     //$info.empty();
                     //$info.append($(L.HTMLUtils.buildTable(record)).wrap('<div/>').parent().html());
 
                     console.log(record);
 
                     allLayer.options.includeLayer = function (newRecord) {
-                       return newRecord.airport1 === record.code || newRecord.airport2 === record.code;
+                       return newRecord.Origin === record.code;
                     };
 
                     allLayer.reloadData();
@@ -323,8 +319,8 @@
 
         layerControl.addOverlay(airportsLayer, 'Airports');
 
-        // Iterate through the keys in the airlineLookup object.  Each key is an airline code
-        for (var key in airlineLookup) {
+        // Iterate through the keys in the UniqueCarrierLookup object.  Each key is an UniqueCarrier code
+        for (var key in UniqueCarrierLookup) {
 
             if (key !== 'all') {
                 // Create a graph layer that draws lines from the location in the fromField to the location in the toField.
@@ -332,11 +328,11 @@
                 // location from the airport data we have available.
                 var airportOptions = L.extend(options, {
                     includeLayer: function (record) {
-                        return record.airline === key;
+                        return record.UniqueCarrier === key;
                     }
                 })
 
-                var flightLayer = new L.Graph(flights, airportOptions);
+                var flightLayer = new L.Graph(flight_delays, airportOptions);
 
                 layerControl.addOverlay(flightLayer, key);
 

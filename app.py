@@ -50,12 +50,6 @@ def main():
 def index():
     if request.method == 'GET':
         return render_template('index.html')
-    # else:
-    #     #request was a POST
-    #    if request.form['submit']=='See Interactive Map':
-    #        return redirect('/getmap')
-    #    if request.form['submit']=='Get Prediction':
-    #        return redirect('/getpred')
 
 @app.route('/getmap',methods=['POST','GET'])
 def get_map():
