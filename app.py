@@ -38,6 +38,7 @@ cols = ['Month', 'DayofMonth', 'DayOfWeek', 'UniqueCarrier', 'Origin', 'Dest',
         'o_press', 'o_wind_d', 'o_wind_s', 'o_coverage', 'o_rain_1h',
         'd_temp', 'd_press', 'd_wind_d', 'd_wind_s', 'd_coverage',
         'd_rain_1h']
+carrier = ['AA', 'UA', 'AS', 'WN', 'OO', 'EV', 'HA', 'VX', 'DL', 'NK', 'B6', 'F9']
 sample = pd.DataFrame(index=np.arange(1), columns=cols)
 
 # datetime + 3 days
@@ -45,6 +46,8 @@ date_time = datetime.now() + timedelta(days=3)
 dt_string = date_time.strftime('%Y-%m-%d %H:%M:%S')
 
 app.add_url_rule('/assets/<path:filename>', endpoint='assets', view_func=app.send_static_file)
+
+# print(city_dict.keys(), file=sys.stderr)
 
 @app.route('/')
 def main():
@@ -59,7 +62,6 @@ def main():
 # @app.route('/getmap',methods=['POST','GET'])
 # def get_map():
 #   return render_template('map.html')
-
 
 @app.route('/getdata', methods=['GET', 'POST'])
 def get_dat():
@@ -101,9 +103,9 @@ def get_dat():
         sample_tr = mapper.transform(sample)
         pred = clf.predict_proba(sample_tr)
         class_pred = np.argmax(pred)
-        return render_template('getdata.html', pred=class_pred, proba=pred, dt_string=dt_string, show_prediction=True)
+        return render_template('getdata.html', pred=class_pred, proba=pred, dt_string=dt_string, show_prediction=True, airports=city_dict.keys(), origin=result['origin'], dest=result['dest'], carriers=carrier, carrier=result['unique_carrier'])
     else:
-        return render_template('getdata.html', dt_string=dt_string, show_prediction=False)
+        return render_template('getdata.html', dt_string=dt_string, show_prediction=False, airports=city_dict.keys(), carriers=carries)
 
 # @app.route('/getdelay',methods=['GET','POST'])
 # def get_pred():

@@ -4,10 +4,23 @@
 
 // Place your BEM/SMACSS style .scss modules in the modules folder
 
+.pages-header {
+	background: url("../../../static/assets/img/bg_intro.jpg") no-repeat center center;
+	@include background_size(cover);
+	position: relative;
 
-
-
-
+	&:after {
+		@include background-image(linear-gradient(to bottom right, #e06811, #a53add));
+		content: "";
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		@include opacity(0.6);
+	}
+}
 
 
 

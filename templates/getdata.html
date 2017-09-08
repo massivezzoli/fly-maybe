@@ -4,7 +4,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<a href="/"><h1>Fly-Maybe</h1></a>
+				<h1>Fly-Maybe</h1>
+				<a class="btn btn-light" href="/">Home</a>
 				<a class="btn btn-light" href="/#map">Map</a>
 			</div>
 		</div>
@@ -17,15 +18,27 @@
 			<form action = "/getdata" method="POST">
    				<div class="form-group">
 	   				<label for="origin">Select origin:</label>
-	   				<input name="origin" type ="text" value="JFK" class="form-control" />
+	   				<select name="origin" class="form-control">
+		   				{% for name in airports %}
+		   					<option value="{{ name }}" {% if name == origin %} selected {% endif %}>{{ name }}</option>
+		   				{% endfor %}
+					</select>
    				</div>
    				<div class="form-group">
    					<label for="dest">Select destination:</label>
-   					<input name="dest" type ="text" value="LAX" class="form-control" />
+   					<select name="dest" class="form-control">
+		   				{% for name in airports %}
+		   					<option value="{{ name }}" {% if name == dest %} selected {% endif %}>{{ name }}</option>
+		   				{% endfor %}
+					</select>
    				</div>
    				<div class="form-group">
 	   				<label for="unique_carrier">Select airline:</label>
-	   				<input name="unique_carrier" type="text" value="AA" class="form-control" />
+	   				<select name="unique_carrier" class="form-control">
+		   				{% for name in carriers %}
+		   					<option value="{{ name }}" {% if name == carrier %} selected {% endif %}>{{ name }}</option>
+		   				{% endfor %}
+					</select>
    				</div>
    				<div class="form-group">
 	   				<label for="date">Select date:</label>
