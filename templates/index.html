@@ -34,9 +34,21 @@
             </div>
         </div>
     </div>
-    <div class="homepage-section homepage-map">
-        <div id="map"></div>
-        <div id="info" class="leaflet-control-legend"><span>Click on airport to view details</span></div>
+
+    <!--  map 1 -->
+    <div class="homepage-section homepage-map map-1">
+	    <div class="map-wrapper">
+	        <div id="map"></div>
+			<div id="info" class="leaflet-control-legend"><span>Click on airport to view details</span></div>
+	    </div>
+    </div>
+
+     <!--  map 2 -->
+    <div class="homepage-section homepage-map map-2">
+	    <div class="map-wrapper">
+	        <!-- <div id="map"></div> -->
+			<div id="info" class="leaflet-control-legend"><span>Click on airport to view details</span></div>
+	    </div>
     </div>
 
 
@@ -71,7 +83,7 @@ $(document).ready(function () {
     var $info = $('#info');
     var $map = $('#map');
     var resize = function () {
-        $map.height($(window).height() - $('div.navbar').outerHeight());
+        $map.height($map.parent(".map-wrapper").outerHeight());
 
         if (map) {
             map.invalidateSize();
