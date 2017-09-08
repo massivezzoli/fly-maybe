@@ -41,7 +41,7 @@ cols = ['Month', 'DayofMonth', 'DayOfWeek', 'UniqueCarrier', 'Origin', 'Dest',
 sample = pd.DataFrame(index=np.arange(1), columns=cols)
 
 # datetime + 3 days
-date_time = datetime.now()+ timedelta(days=3)
+date_time = datetime.now() + timedelta(days=3)
 dt_string = date_time.strftime('%Y-%m-%d %H:%M:%S')
 
 app.add_url_rule('/assets/<path:filename>', endpoint='assets', view_func=app.send_static_file)
@@ -60,10 +60,11 @@ def main():
 # def get_map():
 #   return render_template('map.html')
 
-@app.route('/getdata',methods=['GET','POST'])
+
+@app.route('/getdata', methods=['GET', 'POST'])
 def get_dat():
-	if request.method == 'POST':
-		result = request.form
+    if request.method == 'POST':
+        result = request.form
         origin = result['origin']
         dest = result['dest']
         origin_city = city_dict[origin]
@@ -100,12 +101,12 @@ def get_dat():
         sample_tr = mapper.transform(sample)
         pred = clf.predict_proba(sample_tr)
         class_pred = np.argmax(pred)
-        return render_template('getdata.html', pred = class_pred, proba = pred)
+        return render_template('getdata.html', pred=class_pred, proba=pred)
     else:
-    	return render_template('getdata.html', date_time = dt_string)
+        return render_template('getdata.html', date_time=dt_string)
 
-#@app.route('/getdelay',methods=['GET','POST'])
-#def get_pred():
+# @app.route('/getdelay',methods=['GET','POST'])
+# def get_pred():
 #    if request.method=='POST':
 #        result=request.form
 #        origin = result['origin']
