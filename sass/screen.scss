@@ -26,6 +26,7 @@ body {
 	@extend .font-body;
 	background: $white;
 	color: $black;
+	overflow-x: hidden;
 }
 
 @import "libs/typography"; 					// Base level typography

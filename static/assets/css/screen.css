@@ -7982,7 +7982,8 @@ a.text-dark:focus, a.text-dark:hover {
 /* line 25, ../../../sass/screen.scss */
 body {
   background: #ffffff;
-  color: #212121; }
+  color: #212121;
+  overflow-x: hidden; }
 
 /* line 10, ../../../sass/libs/_typography.scss */
 .font-body, body {
@@ -9355,14 +9356,14 @@ input[type="checkbox"]:focus {
 .input-group.date .input-group-addon {
   cursor: pointer; }
 
-/* line 39, ../../../sass/screen.scss */
+/* line 40, ../../../sass/screen.scss */
 a {
   color: #673AB7;
   text-decoration: none; }
   /* line 87, ../../../sass/libs/_mixins.scss */
   a:hover, a:focus, a:active {
     color: #491c99; }
-  /* line 45, ../../../sass/screen.scss */
+  /* line 46, ../../../sass/screen.scss */
   a:not(> img) {
     white-space: pre;
     white-space: pre-wrap;
@@ -9373,7 +9374,7 @@ a {
     white-space: -hp-pre-wrap;
     word-wrap: break-word; }
 
-/* line 50, ../../../sass/screen.scss */
+/* line 51, ../../../sass/screen.scss */
 .svg-wrapper {
   width: 100%;
   display: block;
@@ -9396,7 +9397,7 @@ a {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   -ms-backface-visibility: hidden; }
-  /* line 58, ../../../sass/screen.scss */
+  /* line 59, ../../../sass/screen.scss */
   .svg-wrapper svg {
     width: 100%;
     height: 100%;
@@ -9508,7 +9509,7 @@ a {
 /* ::Print */
 /* ------------------------------------------------------------ */
 @media print {
-  /* line 111, ../../../sass/screen.scss */
+  /* line 112, ../../../sass/screen.scss */
   body {
     line-height: 0.55em;
     font-size: 62.5%; } }
