@@ -1,33 +1,56 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>FLIGHTS</title>
-    <link rel=stylesheet type=text/css href='{{ url_for('static',filename='bootstrap.css')}}'>
-</head>
-<title>Airline-delay-Prediction App</title>
-<body>
-<h1>Fly-Maybe</h1>
-<div>
-    Insert your flight's info (max 5 days ahead).
-    We'll get th relevant weather and airport data from the web for you and make
-    a prediction about how much delay you could be incurring in your next flight.
+{% extends "layout.html" %}
+{% block content %}
+<header class="pages-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<a href="/"><h1>Fly-Maybe</h1></a>
+				<a class="btn btn-light" href="/#map">Map</a>
+			</div>
+		</div>
+	</div>
+</header>
+<div class="container">
+	<div class="row">
+		<div class="col-12 col-sm-4 col-md-6">
+			<!--  form -->
+			<form action = "/getdata" method="POST">
+   				<div class="form-group">
+	   				<label for="origin">Select origin:</label>
+	   				<input name="origin" type ="text" value="JFK" class="form-control" />
+   				</div>
+   				<div class="form-group">
+   					<label for="dest">Select destination:</label>
+   					<input name="dest" type ="text" value="LAX" class="form-control" />
+   				</div>
+   				<div class="form-group">
+	   				<label for="unique_carrier">Select airline:</label>
+	   				<input name="unique_carrier" type="text" value="AA" class="form-control" />
+   				</div>
+   				<div class="form-group">
+	   				<label for="date">Select date:</label>
+	   				<input name="date" type="text" class="form-control" value="{{ dt_string }}" />
+   				</div>
+   				<input type="submit" value="Check Delay" class="btn btn-primary" />
+			</form>
+		</div>
+		<div class="col-12 col-sm-8 col-md-6">
+			<!-- results -->
+			<div class="results-wrap">
+				<h3>Prediction:</h3>
+				<div>You flight is class: <strong>{{ pred }}</strong></div>
+				<div>Probability: {{ proba }}</div>
+				<div>
+					<h5>Legend:</h5>
+					<ul>
+						<li>Class 0 : No delay or 15 minutes max</li>
+						<li>Class 1 : Small delay - 15 to 45 minutes max</li>
+						<li>Class 2 : Annoying delay - 45 min to 2 h</li>
+						<li>Class 3 : Catastrophic dealy! - >2h</li>
+					</ul>
+				</div>
+      		</div>
+		</div>
+	</div>
 </div>
-<form action = "/getdelay" method="POST">
-    <p> Select Origin:<input name="origin" type ="text" value="JFK" /> </p>
-    <p> Select Destination: <input name="dest" type ="text" value="LAX" /> </p>
-    <p> Select Airline : <input name="unique_carrier" type="text" value="AA"></p>
-    <p> Select Date:<input name="date" type ="text" value= {{ dt_string }} /> </p>
-    <p> <input type ="submit" value="Check Delay" /> </p>
-</form>
-<div class=metanav>
-<form method='get' action='/index'>
-    <button class="btn btn-default button1" name="map"> HOME </button>
-</form>
-
-<form method='get' action='/getmap'>
-    <button class="btn btn-default button1" name="map"> MAP </button>
-</form>
-</div>
-</body>
-</html>
+{% endblock %}

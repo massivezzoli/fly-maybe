@@ -24,8 +24,8 @@ html {
 
 body {
 	@extend .font-body;
-	background: $black;
-	color: $gray;
+	background: $white;
+	color: $black;
 }
 
 @import "libs/typography"; 					// Base level typography
