@@ -43,7 +43,9 @@ sample = pd.DataFrame(index=np.arange(1), columns=cols)
 
 # datetime + 3 days
 date_time = datetime.now() + timedelta(days=3)
+date_time_limit = datetime.now() + timedelta(days=5)
 dt_string = date_time.strftime('%Y-%m-%d %H:%M:%S')
+dt_string_limit = date_time_limit.strftime('%Y-%m-%d %H:%M:%S')
 
 app.add_url_rule('/assets/<path:filename>', endpoint='assets', view_func=app.send_static_file)
 
@@ -103,9 +105,9 @@ def get_dat():
         sample_tr = mapper.transform(sample)
         pred = clf.predict_proba(sample_tr)
         class_pred = np.argmax(pred)
-        return render_template('getdata.html', pred=class_pred, proba=pred, dt_string=dt_string, show_prediction=True, airports=city_dict.keys(), origin=result['origin'], dest=result['dest'], carriers=carrier, carrier=result['unique_carrier'])
+        return render_template('getdata.html', pred=class_pred, proba=pred, dt_string=dt_string, dt_string_limit=dt_string_limit, show_prediction=True, airports=city_dict.keys(), origin=result['origin'], dest=result['dest'], carriers=carrier, carrier=result['unique_carrier'])
     else:
-        return render_template('getdata.html', dt_string=dt_string, show_prediction=False, airports=city_dict.keys(), carriers=carrier)
+        return render_template('getdata.html', dt_string=dt_string, dt_string_limit=dt_string_limit, show_prediction=False, airports=city_dict.keys(), carriers=carrier)
 
 # @app.route('/getdelay',methods=['GET','POST'])
 # def get_pred():

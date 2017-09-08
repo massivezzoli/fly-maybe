@@ -35,9 +35,14 @@ ScriptsVari = {
 
 	bindUIActions: function() {
 
+		var maxDate = $('#datetimepicker1').find("input").data("limit");
+		//console.log(maxDate);
+
 		//datepicker
 		$('#datetimepicker1').datetimepicker({
-			format: "YYYY-MM-DD HH:mm:ss"
+			format: "YYYY-MM-DD HH:mm:ss",
+			stepping: 10,
+			maxDate: maxDate
 		});
 
 		//$('#datetimepicker1').datetimepicker("show");
