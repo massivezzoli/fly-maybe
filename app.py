@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 from weather_get import get_w
 import cPickle as pickle
-from datetime import datetime
+from datetime import datetime, timedelta
 import dill
 import sys
 from sklearn.preprocessing import OneHotEncoder as OHE
@@ -40,6 +40,10 @@ cols = ['Month', 'DayofMonth', 'DayOfWeek', 'UniqueCarrier', 'Origin', 'Dest',
         'd_rain_1h']
 sample = pd.DataFrame(index=np.arange(1), columns=cols)
 
+# datetime + 3 days
+date_time = datetime.now()+ timedelta(days=3)
+dt_string = date_time.strftime('%Y-%m-%d %H:%M:%S')
+
 app.add_url_rule('/assets/<path:filename>', endpoint='assets', view_func=app.send_static_file)
 
 @app.route('/')
@@ -57,7 +61,7 @@ def get_map():
 
 @app.route('/getdata',methods=['GET','POST'])
 def get_dat():
-    return render_template('getdata.html')
+    return render_template('getdata.html', date_time = dt_string)
 
 @app.route('/getdelay',methods=['GET','POST'])
 def get_pred():
