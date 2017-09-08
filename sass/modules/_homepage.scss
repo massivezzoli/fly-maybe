@@ -6,8 +6,6 @@
 
 
 .homepage-intro {
-	background: url("../../../static/assets/img/bg_intro.jpg") no-repeat center center;
-	@include background_size(cover);
 	display: block;
 	width: 100vw;
 	height: 100vh;
@@ -47,11 +45,13 @@
 .homepage-map {
 	width: 100vw;
 	height: 100vh;
-	background: $gray;
+	background: rgba($gray - 50,0.7);
 	padding: 10vh 10vw;
+	position: relative;
+	z-index: 100;
 
 	&.map-2 {
-		background: $gray - 30;
+		background: rgba($gray - 100,0.7);
 	}
 
 	.map-wrapper {
@@ -62,7 +62,7 @@
 }
 
 #map {
-	background: $gray;
+	//background: rgba($gray,0.5);
 }
 
 

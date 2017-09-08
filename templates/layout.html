@@ -29,23 +29,24 @@
 
     </head>
     <body>
-	{% block content %}{% endblock %}
+	    <div class="bg-wrap"></div>
+		{% block content %}{% endblock %}
 
-	<script type="text/javascript" src='{{ url_for('static', filename='lib/leaflet/leaflet-src.js')}}'></script>
+		<script type="text/javascript" src='{{ url_for('static', filename='lib/leaflet/leaflet-src.js')}}'></script>
 
-	<!-- cdn js -->
-	<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.3"></script>
-	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.1/underscore-min.js"></script>
+		<!-- cdn js -->
+		<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.3"></script>
+		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.1/underscore-min.js"></script>
 
-	<!-- real data -->
-	<script type="text/javascript" src='{{ url_for('static', filename='data/flight_counts.js')}}'></script>
-	<script type="text/javascript" src='{{ url_for('static', filename='data/usAirports.js')}}'></script>
-	<script type="text/javascript" src='{{ url_for('static', filename='data/flights_delays.js')}}'></script>
+		<!-- real data -->
+		<script type="text/javascript" src='{{ url_for('static', filename='data/flight_counts.js')}}'></script>
+		<script type="text/javascript" src='{{ url_for('static', filename='data/usAirports.js')}}'></script>
+		<script type="text/javascript" src='{{ url_for('static', filename='data/flights_delays.js')}}'></script>
 
-	<script type="text/javascript" src='{{ url_for('static', filename='lib/leaflet/dvf.js')}}'></script>
+		<script type="text/javascript" src='{{ url_for('static', filename='lib/leaflet/dvf.js')}}'></script>
 
-	<!-- body js -->
-	<script src="{{ url_for('static',filename='assets/js/plugins.min.js')}}" type="text/javascript"></script>
-    <script src="{{ url_for('static',filename='assets/js/main.min.js')}}" type="text/javascript"></script>
+		<!-- body js -->
+		<script src="{{ url_for('static',filename='assets/js/plugins.min.js')}}" type="text/javascript"></script>
+		<script src="{{ url_for('static',filename='assets/js/main.min.js')}}" type="text/javascript"></script>
     </body>
 </html>

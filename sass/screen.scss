@@ -70,6 +70,17 @@ a {
 	@include clearfix;
 }
 
+.bg-wrap {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	background: url("../../../static/assets/img/bg_intro.jpg") no-repeat center center;
+	@include background_size(cover);
+	background-position: fixed;
+}
+
 // Use SASS globbing to import all _.scss files in the module folder.
 // These should be independent modules that follow the BEM/SMACSS way
 @import "modules/*";
