@@ -85,6 +85,12 @@ a {
 // These should be independent modules that follow the BEM/SMACSS way
 @import "modules/*";
 
+.btn {
+	&.btn-light {
+		background-color: rgba(#f8f9fa, 0.6);
+	}
+}
+
 
 // ------------------------------------------------------------
 // Breakpoints

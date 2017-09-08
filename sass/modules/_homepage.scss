@@ -35,7 +35,18 @@
 	z-index: 100;
 }
 
+.homepage-title {
+	color: $gray;
+	font-weight: 400;
+
+	p {
+		text-shadow: 0px 0px 10px rgba($black, 0.4);
+	}
+}
+
 .homepage-nav {
+	margin-top: 15px;
+
 	.btn {
 		margin: 0 15px;
 		min-width: 150px;

@@ -28,9 +28,9 @@
 		<script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.5.min.js"></script>
 
     </head>
-    <body>
-	    <div class="bg-wrap"></div>
-		{% block content %}{% endblock %}
+    <body class="">
+		{% block content %}
+		{% endblock %}
 
 		<script type="text/javascript" src='{{ url_for('static', filename='lib/leaflet/leaflet-src.js')}}'></script>
 
