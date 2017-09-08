@@ -105,7 +105,7 @@ def get_dat():
         class_pred = np.argmax(pred)
         return render_template('getdata.html', pred=class_pred, proba=pred, dt_string=dt_string, show_prediction=True, airports=city_dict.keys(), origin=result['origin'], dest=result['dest'], carriers=carrier, carrier=result['unique_carrier'])
     else:
-        return render_template('getdata.html', dt_string=dt_string, show_prediction=False, airports=city_dict.keys(), carriers=carries)
+        return render_template('getdata.html', dt_string=dt_string, show_prediction=False, airports=city_dict.keys(), carriers=carrier)
 
 # @app.route('/getdelay',methods=['GET','POST'])
 # def get_pred():
