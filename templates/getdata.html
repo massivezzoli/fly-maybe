@@ -36,6 +36,7 @@
 		</div>
 		<div class="col-12 col-sm-8 col-md-6">
 			<!-- results -->
+			{% if show_prediction %}
 			<div class="results-wrap">
 				<h3>Prediction:</h3>
 				<div>You flight is class: <strong>{{ pred }}</strong></div>
@@ -50,6 +51,7 @@
 					</ul>
 				</div>
       		</div>
+      		{% endif %}
 		</div>
 	</div>
 </div>

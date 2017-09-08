@@ -101,9 +101,9 @@ def get_dat():
         sample_tr = mapper.transform(sample)
         pred = clf.predict_proba(sample_tr)
         class_pred = np.argmax(pred)
-        return render_template('getdata.html', pred=class_pred, proba=pred)
+        return render_template('getdata.html', pred=class_pred, proba=pred, dt_string=dt_string, show_prediction=True)
     else:
-        return render_template('getdata.html', date_time=dt_string)
+        return render_template('getdata.html', dt_string=dt_string, show_prediction=False)
 
 # @app.route('/getdelay',methods=['GET','POST'])
 # def get_pred():
