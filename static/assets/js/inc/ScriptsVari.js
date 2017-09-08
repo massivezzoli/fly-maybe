@@ -35,6 +35,12 @@ ScriptsVari = {
 
 	bindUIActions: function() {
 
+		//datepicker
+		$('#datetimepicker1').datetimepicker({
+			format: "YYYY-MM-DD HH:mm:ss"
+		});
+
+		//$('#datetimepicker1').datetimepicker("show");
 	},
 
 	scrollActions: function() {
