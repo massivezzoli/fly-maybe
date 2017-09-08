@@ -1,77 +1,77 @@
 {% extends "layout.html" %}
 {% block content %}
 <header class="pages-header">
-	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<h2>Fly-Maybe</h2>
-				<a class="btn btn-light" href="/">Home</a>
-				<a class="btn btn-light" href="/#map">Map</a>
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Fly-Maybe</h2>
+                <a class="btn btn-light" href="/">Home</a>
+                <a class="btn btn-light" href="/#map">Map</a>
+            </div>
+        </div>
+    </div>
 </header>
 <div class="container">
-	<div class="row">
-		<div class="col-12 col-sm-4 col-md-6">
-			<!--  form -->
-			<form action = "/getdata" method="POST">
-   				<div class="form-group">
-	   				<label for="origin">Select origin:</label>
-	   				<select name="origin" class="form-control">
-		   				{% for name in airports %}
-		   					<option value="{{ name }}" {% if name == origin %} selected {% endif %}>{{ name }}</option>
-		   				{% endfor %}
-					</select>
-   				</div>
-   				<div class="form-group">
-   					<label for="dest">Select destination:</label>
-   					<select name="dest" class="form-control">
-		   				{% for name in airports %}
-		   					<option value="{{ name }}" {% if name == dest %} selected {% endif %}>{{ name }}</option>
-		   				{% endfor %}
-					</select>
-   				</div>
-   				<div class="form-group">
-	   				<label for="unique_carrier">Select airline:</label>
-	   				<select name="unique_carrier" class="form-control">
-		   				{% for name in carriers %}
-		   					<option value="{{ name }}" {% if name == carrier %} selected {% endif %}>{{ name }}</option>
-		   				{% endfor %}
-					</select>
-   				</div>
-   				<div class="form-group">
-	   				<div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-                	    <input type="text" name="date" class="form-control datetimepicker-input" value="{{ dt_string }}" data-target="#datetimepicker1" data-limit="{{ dt_string_limit }}"/>
-                	    <span class="input-group-addon" data-target="#datetimepicker1" data-toggle="datetimepicker">
-                	        <span class="fa fa-calendar"></span>
-                	    </span>
-                	</div>
-   				</div>
+    <div class="row">
+        <div class="col-12 col-sm-4 col-md-6">
+            <!--  form -->
+            <form action = "/getdata" method="POST">
+                   <div class="form-group">
+                       <label for="origin">Select origin:</label>
+                       <select name="origin" class="form-control">
+                           {% for name in airports_o %}
+                               <option value="{{ name }}" {% if name == origin %} selected {% endif %}>{{ name }}</option>
+                           {% endfor %}
+                    </select>
+                   </div>
+                   <div class="form-group">
+                       <label for="dest">Select destination:</label>
+                       <select name="dest" class="form-control">
+                           {% for name in airports_d %}
+                               <option value="{{ name }}" {% if name == dest %} selected {% endif %}>{{ name }}</option>
+                           {% endfor %}
+                    </select>
+                   </div>
+                   <div class="form-group">
+                       <label for="unique_carrier">Select airline:</label>
+                       <select name="unique_carrier" class="form-control">
+                           {% for name in carriers %}
+                               <option value="{{ name }}" {% if name == carrier %} selected {% endif %}>{{ name }}</option>
+                           {% endfor %}
+                    </select>
+                   </div>
+                   <div class="form-group">
+                       <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                        <input type="text" name="date" class="form-control datetimepicker-input" value="{{ dt_string }}" data-target="#datetimepicker1" data-limit="{{ dt_string_limit }}"/>
+                        <span class="input-group-addon" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                            <span class="fa fa-calendar"></span>
+                        </span>
+                    </div>
+                   </div>
                 <div class="form-group">
-	   				<input type="submit" value="Check Delay" class="btn btn-primary float-right" />
+                       <input type="submit" value="Check Delay" class="btn btn-primary float-right" />
                 </div>
-			</form>
-		</div>
-		<div class="col-12 col-sm-8 col-md-6">
-			<!-- results -->
-			{% if show_prediction %}
-			<div class="results-wrap">
-				<h3>Prediction:</h3>
-				<div>You flight is class: <strong>{{ pred }}</strong></div>
-				<div>Probability: {{ proba }}</div>
-				<div>
-					<h5>Legend:</h5>
-					<ul>
-						<li>Class 0 : No delay or 15 minutes max</li>
-						<li>Class 1 : Small delay - 15 to 45 minutes max</li>
-						<li>Class 2 : Annoying delay - 45 min to 2 h</li>
-						<li>Class 3 : Catastrophic dealy! - >2h</li>
-					</ul>
-				</div>
-      		</div>
-      		{% endif %}
-		</div>
-	</div>
+            </form>
+        </div>
+        <div class="col-12 col-sm-8 col-md-6">
+            <!-- results -->
+            {% if show_prediction %}
+            <div class="results-wrap">
+                <h3>Prediction:</h3>
+                <div>You flight is class: <strong>{{ pred }}</strong></div>
+                <div>Probability: {{ proba }}</div>
+                <div>
+                    <h5>Legend:</h5>
+                    <ul>
+                        <li>Class 0 : No delay or 15 minutes max</li>
+                        <li>Class 1 : Small delay - 15 to 45 minutes max</li>
+                        <li>Class 2 : Annoying delay - 45 min to 2 h</li>
+                        <li>Class 3 : Catastrophic dealy! - >2h</li>
+                    </ul>
+                </div>
+              </div>
+              {% endif %}
+        </div>
+    </div>
 </div>
 {% endblock %}
