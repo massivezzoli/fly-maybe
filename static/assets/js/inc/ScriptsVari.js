@@ -358,7 +358,7 @@ ScriptsVari = {
         var $info = $('#info-2');
         var $map = $('#map-2');
         var resize = function () {
-            $map.height($(window).height() - $('div.navbar').outerHeight());
+            $map.height($map.parent(".map-wrapper").outerHeight());
 
             if (map) {
                 map.invalidateSize();
