@@ -207,7 +207,7 @@ ScriptsVari = {
     	        */
     	    },
     	    legendOptions: {
-    	        width: 200,
+    	        width: 100,
     	        numSegments: 5,
     	        className: 'legend-line'
     	    },
@@ -224,7 +224,7 @@ ScriptsVari = {
     	                outputSaturation: '80%',
     	                outputLuminosity: '50%'
     	            }),
-    	            displayName: 'Flights Out of Origin to Destination'
+    	            displayName: 'Flights Out of Origin'
     	        }
     	    },
     	    onEachRecord: function (layer, record, location) {
@@ -495,7 +495,7 @@ ScriptsVari = {
                 */
             },
             legendOptions: {
-                width: 200,
+                width: 100,
                 numSegments: 5,
                 className: 'legend-line'
             },
@@ -507,12 +507,12 @@ ScriptsVari = {
             displayOptions: {
                 //
                 ratio: {
-                    weight: new L.LinearFunction([0, 1], [1, 14]),
+                    weight: new L.LinearFunction([0, 1], [0.5, 14]),
                     color: new L.HSLHueFunction([0, 100], [0.5, 0], {
                         outputSaturation: '80%',
                         outputLuminosity: '50%'
                     }),
-                    displayName: 'Ratio of delayed flights over total'
+                    displayName: 'Ratio of delayed flights'
                 }
             },
             onEachRecord: function (layer, record, location) {
