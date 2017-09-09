@@ -64,6 +64,15 @@
 	}
 }
 
+.map-info {
+	color: $white;
+	text-align: center;
+	font-weight: 600;
+	//font-size: 21px;
+	margin-bottom: 18px;
+	text-shadow: 0px 0px 10px rgba($black, 0.2);
+}
+
 .homepage-map {
 	width: 100%;
 	//height: 100vh;
@@ -88,7 +97,7 @@
 		text-align: center;
 		color: $white;
 		text-shadow: 0px 0px 10px rgba($black, 0.2);
-		margin-bottom: 35px;
+		margin-bottom: 16px;
 	}
 }
 

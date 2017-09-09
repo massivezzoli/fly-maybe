@@ -111,14 +111,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-compass');
-  grunt.loadNpmTasks('grunt-wp-version');
+  //grunt.loadNpmTasks('grunt-wp-version');
 
   // Register tasks
   grunt.registerTask('default', [
     'clean',
     'compass:dist',
     'uglify:dist',
-    'version'
+    //'version'
   ]);
 
   grunt.registerTask('dev', [
