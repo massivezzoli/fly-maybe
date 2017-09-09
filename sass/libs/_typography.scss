@@ -27,15 +27,54 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	margin-bottom: 15px;
+	margin-bottom: 25px;
+	position: relative;
+
+	&:after {
+		content: "";
+		display: block;
+		width: 40px;
+		height: 4px;
+		position: absolute;
+		bottom: -14px;
+		left: 50%;
+		margin-left: -20px;
+		background: $white;
+	}
 }
 
 h2 {
+	margin-bottom: 20px;
+	position: relative;
 
+	&:after {
+		content: "";
+		display: block;
+		width: 30px;
+		height: 3px;
+		position: absolute;
+		bottom: -11px;
+		left: 50%;
+		margin-left: -15px;
+		background: $white;
+	}
 }
 
 h3 {
+	position: relative;
+	margin-bottom: 20px;
 
+	&:after {
+		content: "";
+		display: block;
+		width: 30px;
+		height: 3px;
+		position: absolute;
+		bottom: -11px;
+		left: 0%;
+		//margin-left: -15px;
+		background: $black;
+	}
 }
 
 h4 {

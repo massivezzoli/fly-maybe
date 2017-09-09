@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+{% block content %}
+<header class="pages-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+	            <div class="header-inner">
+	                <h1>Fly-Maybe</h1>
+	                <div class="btn-group" role="group" aria-label="">
+						<a class="btn btn-light" href="/">Home</a>
+						<a class="btn btn-light" href="/#first-map">Map 1</a>
+						<a class="btn btn-light" href="/#second-map">Map 2</a>
+	                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="prediction-first-row">
+	<div class="container">
+	    <div class="row">
+	        <div class="col-12">
+		        <div class="prediction-intro">
+			    	<h2>Prediction</h2>
+					<p>Input the details of your flight: <strong>origin</strong>, <strong>destination</strong>, <strong>airline</strong>, <strong>date</strong> and <strong>time of departure</strong>.</p>
+					<p>The model can only predict delays for flights up to 5 days from now.
+					The app will check the weather at the origin and destination by querying OpenWeatherMap and use the information to predict the delay.</p>
+					<p>The algorithm has been trained to assign your flight to one of four classes. The classes were decided based on the potential impact of the delay on your trip:</p>
+					<ul class="legend">
+						<li><span>1</span> 0-15 min insignificant;</li>
+						<li><span>2</span> 15-45min minor delay;</li>
+						<li><span>3</span> 45min to 2h significant delay</li>
+						<li><span>4</span> >2h catastrophic delay and potentially refundable.</li>
+					</ul>
+					<strong>Have a try!</strong></p>
+		        </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+<div class="prediction-second-row">
+	<div class="container">
+	    <div class="row">
+        	<div class="col-12 col-sm-4 col-md-6">
+            <!--  form -->
+            <form action = "/prediction" method="POST">
+		           <h3>Select:</h3>
+                   <div class="form-group">
+                       <label for="origin">Origin:</label>
+                       <select name="origin" class="form-control">
+                           {% for name in airports_o %}
+                               <option value="{{ name }}" {% if name == origin %} selected {% endif %}>{{ name }}</option>
+                           {% endfor %}
+                    </select>
+                   </div>
+                   <div class="form-group">
+                       <label for="dest">Destination:</label>
+                       <select name="dest" class="form-control">
+                           {% for name in airports_d %}
+                               <option value="{{ name }}" {% if name == dest %} selected {% endif %}>{{ name }}</option>
+                           {% endfor %}
+                    </select>
+                   </div>
+                   <div class="form-group">
+                       <label for="unique_carrier">Airline:</label>
+                       <select name="unique_carrier" class="form-control">
+                           {% for name in carriers %}
+                               <option value="{{ name }}" {% if name == carrier %} selected {% endif %}>{{ name }}</option>
+                           {% endfor %}
+                    </select>
+                   </div>
+                   <div class="form-group">
+	                   <label for="unique_carrier">Date:</label>
+                       <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                        <input type="text" name="date" class="form-control datetimepicker-input" value="{{ dt_string }}" data-target="#datetimepicker1" data-limit="{{ dt_string_limit }}"/>
+                        <span class="input-group-addon" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                            <span class="fa fa-calendar"></span>
+                        </span>
+                    </div>
+                   </div>
+                <div class="form-group">
+                       <input type="submit" value="Check Delay" class="btn btn-primary float-right" />
+                </div>
+            </form>
+        </div>
+			<div class="col-12 col-sm-8 col-md-6">
+            <!-- results -->
+            {% if show_prediction %}
+            <div class="results-wrap">
+                <h3>Prediction:</h3>
+                <div class="prediction-results">
+	                You flight is class:
+	                <div class="pred pred-1 result-{{ pred }}"><span>1</span> - 0-15 min insignificant;</div>
+					<div class="pred pred-2 result-{{ pred }}"><span>2</span> - 15-45min minor delay;</div>
+					<div class="pred pred-3 result-{{ pred }}"><span>3</span> - 45min to 2h significant delay</div>
+					<div class="pred pred-4 result-{{ pred }}"><span>4</span> - >2h catastrophic delay and potentially refundable.</div>
+	            </div>
+                <div class="prob-details">Probability: {{ proba }}</div>
+              </div>
+            {% endif %}
+        </div>
+	    </div>
+    </div>
+</div>
+{% endblock %}

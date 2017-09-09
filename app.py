@@ -57,16 +57,7 @@ def main():
     if request.method == 'GET':
         return render_template('index.html')
 
-# @app.route('/index',methods=['GET','POST'])
-#def index():
-#    if request.method == 'GET':
-#        return render_template('index.html')
-
-# @app.route('/getmap',methods=['POST','GET'])
-# def get_map():
-#   return render_template('map.html')
-
-@app.route('/getdata', methods=['GET', 'POST'])
+@app.route('/prediction', methods=['GET', 'POST'])
 def get_dat():
     if request.method == 'POST':
         result = request.form
@@ -106,54 +97,9 @@ def get_dat():
         sample_tr = mapper.transform(sample)
         pred = clf.predict_proba(sample_tr)
         class_pred = np.argmax(pred)
-        return render_template('getdata.html', pred=class_pred, proba=pred, dt_string=dt_string, dt_string_limit=dt_string_limit, show_prediction=True, airports_o=city_dict.keys(), airports_d=airp_d, origin=result['origin'], dest=result['dest'], carriers=carrier, carrier=result['unique_carrier'])
+        return render_template('prediction.html', pred=class_pred, proba=pred, dt_string=dt_string, dt_string_limit=dt_string_limit, show_prediction=True, airports_o=city_dict.keys(), airports_d=airp_d, origin=result['origin'], dest=result['dest'], carriers=carrier, carrier=result['unique_carrier'])
     else:
-        return render_template('getdata.html', dt_string=dt_string, dt_string_limit=dt_string_limit, show_prediction=False, airports_o=city_dict.keys(), airports_d=airp_d, carriers=carrier)
-
-# @app.route('/getdelay',methods=['GET','POST'])
-# def get_pred():
-#    if request.method=='POST':
-#        result=request.form
-#        origin = result['origin']
-#        dest = result['dest']
-#        origin_city = city_dict[origin]
-#        dest_city = city_dict[dest]
-#        unique_carrier = result['unique_carrier']
-#        date_flight = str(result['date'])
-#        list_weath = get_w(date_flight, origin_city, dest_city)
-#        date_time = datetime.strptime(date_flight, '%Y-%m-%d  %H:%M:%S')
-#        sample.Month = date_time.month
-#        sample.DayofMonth = date_time.day
-#        sample.DayOfWeek = int(date_time.weekday())
-#        sample.Origin = str(origin)
-#        sample.Dest = str(dest)
-#        time_a = str(date_time.time())
-#        time_b = int(time_a[:2] + time_a[3:5])
-#        sample.DepTime = time_b
-#        # get distance
-#        d_tup = tuple(sorted([str(dest), str(origin)]))
-#        sample.Distance = dist_dict[d_tup]
-#        # get taxing in/out mean
-#        tax_o = tuple((date_time.month, str(origin)))
-#        tax_i = tuple((date_time.month, str(dest)))
-#        sample.TaxiOut_mean = taxi_out_dict[tax_o]
-#        sample.TaxiIn_mean = taxi_in_dict[tax_i]
-#        sample.UniqueCarrier = unique_carrier
-#        # add weather data in
-#        for i, v in enumerate(list_weath):
-#            sample.iloc[0, 10 + i] = list_weath[i]
-#        # print(sample, file=sys.stderr)
-#        # transform data
-#        sample.Origin = lb_a.transform(sample.Origin)
-#        sample.Dest = lb_a.transform(sample.Dest)
-#        sample.UniqueCarrier = lb_c.transform(sample.UniqueCarrier)
-#        sample_tr = mapper.transform(sample)
-#        pred = clf.predict_proba(sample_tr)
-#        class_pred = np.argmax(pred)
-#        return render_template('result.html', pred=class_pred, proba=pred)
-#
-#        # script, div = components(plot)
-#        # return render_template('graph.html', script=script, div=div)
+        return render_template('prediction.html', dt_string=dt_string, dt_string_limit=dt_string_limit, show_prediction=False, airports_o=city_dict.keys(), airports_d=airp_d, carriers=carrier)
 
 
 if __name__ == '__main__':

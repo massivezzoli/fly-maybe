@@ -5,7 +5,23 @@
 // Place your BEM/SMACSS style .scss modules in the modules folder
 
 
+.footer {
+	background: $black +10;
+	color: $white;
+	text-align: left;
+	padding: 15px 0;
+	position: relative;
 
+	p {
+		margin: 0;
+	}
+
+	a {
+		color: $gray;
+		text-decoration: none;
+		border-bottom: 1px dotted $gray;
+	}
+}
 
 
 

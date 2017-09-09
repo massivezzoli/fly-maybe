@@ -10,6 +10,163 @@
 	width: 18vw;
 }
 
+.prediction-first-row {
+	background: $white;
+}
+
+.prediction-second-row {
+	background: $gray + 10;
+	padding: 50px 0;
+}
+
+.prediction-intro {
+	//text-align: center;
+	margin-bottom: 25px;
+
+	h2 {
+		text-align: left;
+
+		&:after {
+			background: $black;
+			left: 0;
+			margin-left: 0;
+		}
+	}
+}
+
+.legend {
+	list-style: none;
+	list-style-position: inside;
+
+	li {
+		font-weight: 600;
+		margin-bottom: 7px;
+
+		&:nth-child(1) {
+			color: rgba(79, 203, 26, 1);
+
+			span {
+				background: rgba(79, 203, 26, 1);
+			}
+		}
+
+		&:nth-child(2) {
+			color: rgba(237, 228, 76, 1);
+
+			span {
+				background: rgba(237, 228, 76, 1);
+			}
+		}
+
+		&:nth-child(3) {
+			color: rgba(234, 157, 25, 1);
+
+			span {
+				background: rgba(234, 157, 25, 1);
+			}
+		}
+
+		&:nth-child(4) {
+			color: rgba(204, 27, 27, 1);
+
+			span {
+				background: rgba(204, 27, 27, 1);
+			}
+		}
+
+		span {
+			font-size: 23px;
+			line-height: 0.8;
+			position: relative;
+			top: 2px;
+			color: $white;
+			@include border-radius(100%);
+			display: inline-block;
+			width: 24px;
+			height: 24px;
+			text-align: center;
+			line-height: 1;
+		}
+	}
+}
+
+form {
+	//margin-bottom: 30px;
+	@include clearfix();
+}
+
+.pred {
+	display: none;
+	font-weight: 600;
+	font-size: 21px;
+
+	&.pred-1 {
+		color: rgba(79, 203, 26, 1);
+
+		&.result-1 {
+			display: block;
+		}
+
+		span {
+			background: rgba(79, 203, 26, 1);
+		}
+	}
+
+	&.pred-2 {
+		color: rgba(237, 228, 76, 1);
+
+		&.result-2 {
+			display: block;
+		}
+
+		span {
+			background: rgba(237, 228, 76, 1);
+		}
+	}
+
+	&.pred-3 {
+		color: rgba(234, 157, 25, 1);
+
+		&.result-3 {
+			display: block;
+		}
+
+		span {
+			background: rgba(234, 157, 25, 1);
+		}
+	}
+
+	&.pred-4 {
+		color: rgba(204, 27, 27, 1);
+
+		&.result-4 {
+			display: block;
+		}
+
+		span {
+			background: rgba(204, 27, 27, 1);
+		}
+	}
+
+	span {
+		font-size: 23px;
+		line-height: 0.8;
+		position: relative;
+		top: 2px;
+		color: $white;
+		@include border-radius(100%);
+		display: inline-block;
+		width: 24px;
+		height: 24px;
+		text-align: center;
+		line-height: 1;
+	}
+}
+
+.prediction-results {
+	margin-bottom: 15px;
+}
+
 // ------------------------------------------------------------
 // Breakpoints
 // ------------------------------------------------------------

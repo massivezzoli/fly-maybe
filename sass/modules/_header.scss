@@ -8,6 +8,8 @@
 	background: url("../../../static/assets/img/bg_intro.jpg") no-repeat center center;
 	@include background_size(cover);
 	position: relative;
+	padding: 25px 0;
+	margin-bottom: 30px;
 
 	&:after {
 		@include background-image(linear-gradient(to bottom right, #e06811, #a53add));
@@ -19,9 +21,30 @@
 		top: 0;
 		left: 0;
 		@include opacity(0.6);
+		z-index: 100;
+	}
+
+	h1 {
+		color: $white;
+		text-shadow: 0px 0px 10px rgba($black, 0.2);
+		float: left;
+		margin-bottom: 0;
+
+		&:after {
+			display: none;
+		}
+	}
+
+	.btn-group {
+		float: right;
 	}
 }
 
+
+.header-inner {
+	position: relative;
+	z-index: 1000;
+}
 
 
 // ------------------------------------------------------------

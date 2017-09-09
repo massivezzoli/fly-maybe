@@ -28,8 +28,9 @@
                         expect a smooth journey or not.</p>
                     </div>
                     <div class="homepage-nav">
-                        <a class="btn btn-light" href="#map">Map</a>
-                        <a class="btn btn-light" href="/getdata">Prediction</a>
+                        <a class="btn btn-light" href="#first-map">Map</a>
+                        <a class="btn btn-light" href="#second-map">Map 2</a>
+                        <a class="btn btn-light" href="/prediction">Prediction</a>
                     </div>
                 </div>
             </div>
@@ -37,7 +38,8 @@
     </div>
 
     <!--  map 1 -->
-    <div class="homepage-section homepage-map map-1">
+    <div class="homepage-section homepage-map map-1" id="first-map">
+	    <h2>Delays Map</h2>
         <div class="map-wrapper">
             <div id="map"></div>
             <div id="info" class="leaflet-control-legend"><span>Hover on airport to view details</span></div>
@@ -45,10 +47,11 @@
     </div>
 
      <!--  map 2 -->
-    <div class="homepage-section homepage-map map-2">
+    <div class="homepage-section homepage-map map-2" id="second-map">
+	     <h2>Whatever Map</h2>
         <div class="map-wrapper">
             <div id="map-2"></div>
-            <div id="info" class="leaflet-control-legend"><span>Hover on airport to view details</span></div>
+            <div id="info-2" class="leaflet-control-legend"><span>Hover on airport to view details</span></div>
         </div>
     </div>
 {% endblock %}
