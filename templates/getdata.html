@@ -13,6 +13,20 @@
 </header>
 <div class="container">
     <div class="row">
+        <div class="col-12 col-sm-4 col-md-12">
+        <h5>Input the details of your flight; origin, destination, airline, date and
+        time of departure. The model can only predict delays for flights up to 5 days from now.
+        The app will check the weather at the origin and destination by querying OpenWeatherMap
+        and use the information to predict the delay.
+
+        The algorithm has been trained to assign your flight to one of four classes. The classes
+        were decided based on the potential impact of the delay on your trip: 0-15 min insignificant,
+        15-45min minor delay, 45min to 2h significant delay, >2h catastrophic delay and potentially refundable.
+
+        Have a try!
+        
+        </h5>
+        </div>
         <div class="col-12 col-sm-4 col-md-6">
             <!--  form -->
             <form action = "/getdata" method="POST">
