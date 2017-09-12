@@ -97,7 +97,7 @@ def get_dat():
         sample_tr = mapper.transform(sample)
         pred = clf.predict_proba(sample_tr)
         class_pred = np.argmax(pred)
-        return render_template('prediction.html', pred=class_pred, proba=pred, dt_string=dt_string, dt_string_limit=dt_string_limit, show_prediction=True, airports_o=city_dict.keys(), airports_d=airp_d, origin=result['origin'], dest=result['dest'], carriers=carrier, carrier=result['unique_carrier'])
+        return render_template('prediction.html', pred=class_pred, proba=pred, dt_string=date_flight, dt_string_limit=dt_string_limit, show_prediction=True, airports_o=city_dict.keys(), airports_d=airp_d, origin=result['origin'], dest=result['dest'], carriers=carrier, carrier=result['unique_carrier'])
     else:
         return render_template('prediction.html', dt_string=dt_string, dt_string_limit=dt_string_limit, show_prediction=False, airports_o=city_dict.keys(), airports_d=airp_d, carriers=carrier)
 

@@ -6,3 +6,6 @@ is used to predict if a flight is going to be delayed. The flight is classified 
 
 ## Maps
 Flight data is presented in two maps where the number of flights and the  ratio of delayed flights to total number of flights on the route.
+
+## Visit the App:
+(fly-maybe)[https://fly-maybe.herokuapp.com/]
